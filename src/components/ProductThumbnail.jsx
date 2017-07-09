@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Header, Button, Icon, Image, Item, Dimmer, Segment } from 'semantic-ui-react'
+import { Header, Button, Icon, Image, Item, Dimmer, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 export default class ProductThumbnail extends Component {
   state = {}
@@ -9,6 +10,7 @@ export default class ProductThumbnail extends Component {
 
   render() {
     let {product} = this.props;
+    product.url = '/product/' + product.id;
 
     const { active } = this.state
 
@@ -18,10 +20,13 @@ export default class ProductThumbnail extends Component {
         onMouseLeave={this.handleHide}>
           <Dimmer active={active} onClickOutside={this.handleHide}>
             <div>
-              <Header as='h2' inverted>Title</Header>
+              <Header as='h2' inverted>
+                <Icon name='fire' size='small' />
+              </Header>
 
-              <Button primary>Add</Button>
-              <Button>View</Button>
+              <Button primary>
+                <Link to={product.url}>So sánh</Link>
+              </Button>
             </div>
           </Dimmer>
 

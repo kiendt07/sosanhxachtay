@@ -12,7 +12,7 @@ export default class extends Component {
   componentDidMount(){
     getFeaturedProducts()
       .then(response => {
-        let products = response.data.slice(0, 2);
+        let products = response.data.slice(0, 8)
         console.log(products);
         this.setState({
           products: products
